@@ -1,2 +1,3 @@
 ./package.json
 ./Data/config.env
+.vercel

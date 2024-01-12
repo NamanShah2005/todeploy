@@ -2,13 +2,17 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import { data } from "../mongodb/mongoschema.js"
 import { errorHandler } from "../middlewares/error.js"
+import path from "path"
+const __dirname = process.cwd();
+
+
 export const front = (req, res) => {
     try {
         res.json({
-            success: true,
-            message: "created successfully",
-            name: req.user.Name
+            success : true,
+            message : "created successfully"
         })
+        // res.sendFile(path.join(__dirname, 'public', 'index.html'))
     } catch (error) {
         next(error)
     }
@@ -57,10 +61,14 @@ export const login = async (req, res, next) => {
             success: true,
             message: "logged in successfully"
         })
+        // res.sendFile(path.join(__dirname, '../public', 'index.html'))
     } catch (error) {
         next(error)
     }
 }
+// export const login1 = (req,res) => {
+    
+// }
 export const logout = (req, res) => {
     try {
         res.status(200).cookie("token", "", {

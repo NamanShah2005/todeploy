@@ -11,7 +11,7 @@ config({
     path : "./Data/config.env"
 })
 mongosh()
-export const app = express()
+const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(bodyParser.urlencoded({extended : false}))
@@ -38,3 +38,5 @@ app.use(cors({
 app.use(cookieParser())
 app.use(router)
 app.use(errs)
+
+export default app
